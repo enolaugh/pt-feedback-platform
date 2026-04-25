@@ -33,81 +33,6 @@
       consistency: "https://forms.gle/1BBiXRpbR6LTv7EE8"       
     };
 
-    // const CASES_DATA = [
-    // { 
-    //     id: '01', 
-    //     name: 'Case 01', 
-    //     pdfs: { 
-    //     pdf1: './LLM appropriate evaluation/Case01.pdf', 
-    //     pdf2: './LLM validity evaluation/Case01_rep2.pdf', 
-    //     pdf3: './LLM validity evaluation/Case01_rep3.pdf' 
-    //     } 
-    // },
-    // { 
-    //     id: '04', 
-    //     name: 'Case 04', 
-    //     pdfs: { 
-    //     pdf1: './LLM appropriate evaluation/Case04.pdf', 
-    //     pdf2: './LLM validity evaluation/Case04_rep2.pdf', 
-    //     pdf3: './LLM validity evaluation/Case04_rep3.pdf' 
-    //     } 
-    // },
-    // { 
-    //     id: '07', 
-    //     name: 'Case 07', 
-    //     pdfs: { 
-    //     pdf1: './LLM appropriate evaluation/Case07.pdf', 
-    //     pdf2: './LLM validity evaluation/Case07_rep2.pdf', 
-    //     pdf3: './LLM validity evaluation/Case07_rep3.pdf' 
-    //     } 
-    // },
-    // { 
-    //     id: '10', 
-    //     name: 'Case 10', 
-    //     pdfs: { 
-    //     pdf1: './LLM appropriate evaluation/Case10.pdf', 
-    //     pdf2: './LLM validity evaluation/Case10_rep2.pdf', 
-    //     pdf3: './LLM validity evaluation/Case10_rep3.pdf' 
-    //     } 
-    // },
-    // { 
-    //     id: '13', 
-    //     name: 'Case 13', 
-    //     pdfs: { 
-    //     pdf1: './LLM appropriate evaluation/Case13.pdf', 
-    //     pdf2: './LLM validity evaluation/Case13_rep2.pdf', 
-    //     pdf3: './LLM validity evaluation/Case13_rep3.pdf' 
-    //     } 
-    // },
-    // { 
-    //     id: '16', 
-    //     name: 'Case 16', 
-    //     pdfs: { 
-    //     pdf1: './LLM appropriate evaluation/Case16.pdf', 
-    //     pdf2: './LLM validity evaluation/Case16_rep2.pdf', 
-    //     pdf3: './LLM validity evaluation/Case16_rep3.pdf' 
-    //     } 
-    // },
-    // { 
-    //     id: '19', 
-    //     name: 'Case 19', 
-    //     pdfs: { 
-    //     pdf1: './LLM appropriate evaluation/Case19.pdf', 
-    //     pdf2: './LLM validity evaluation/Case19_rep2.pdf', 
-    //     pdf3: './LLM validity evaluation/Case19_rep3.pdf' 
-    //     } 
-    // },
-    // { 
-    //     id: '22', 
-    //     name: 'Case 22', 
-    //     pdfs: { 
-    //     pdf1: './LLM appropriate evaluation/Case22.pdf', 
-    //     pdf2: './LLM validity evaluation/Case22_rep2.pdf', 
-    //     pdf3: './LLM validity evaluation/Case22_rep3.pdf' 
-    //     } 
-    // },
-    // ];
-
     const CASES_DATA = [
     ...Array.from({ length: 24 }, (_, i) => {
         const num = String(i + 1).padStart(2, '0');
@@ -115,9 +40,9 @@
         id: num,
         name: `Case ${num}`,
         pdfs: {
-            pdf1: `./LLM appropriate evaluation/Case${num}.pdf`,
-            pdf2: `./LLM validity evaluation/Case${num}_rep2.pdf`,
-            pdf3: `./LLM validity evaluation/Case${num}_rep3.pdf`,
+            pdf1: `./Case${num}.pdf`,
+            pdf2: `./Case${num}_rep2.pdf`,
+            pdf3: `./Case${num}_rep3.pdf`,
         }
         };
     })
