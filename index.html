@@ -33,21 +33,18 @@
       consistency: "https://forms.gle/1BBiXRpbR6LTv7EE8"       
     };
 
-    const CASES_DATA = [
-    ...Array.from({ length: 24 }, (_, i) => {
+    const CASES_DATA = Array.from({ length: 24 }, (_, i) => {
         const num = String(i + 1).padStart(2, '0');
         return {
-        id: num,
-        name: `Case ${num}`,
-        pdfs: {
-            pdf1: `./Case${num}.pdf`,
-            pdf2: `./Case${num}_rep2.pdf`,
-            pdf3: `./Case${num}_rep3.pdf`,
-        }
+          id: num,
+          name: `Case ${num}`,
+          pdfs: {
+              pdf1: `./Case${num}.pdf`,
+              pdf2: `./Case${num}_rep2.pdf`,
+              pdf3: `./Case${num}_rep3.pdf`,
+          }
         };
-    })
-    ];
-
+    });
 
     function App() {
       const [activeCaseIndex, setActiveCaseIndex] = useState(0);
@@ -59,7 +56,7 @@
       );
 
       const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-      const [leftWidth, setLeftWidth] = useState(50); // 左側 PDF 區塊的寬度百分比
+      const [leftWidth, setLeftWidth] = useState(50);
       const [isDragging, setIsDragging] = useState(false);
       const containerRef = useRef(null);
 
@@ -106,7 +103,6 @@
       return (
         <div className="flex h-screen w-full bg-gray-50 font-sans text-gray-800">
           
-          {/* 左側導覽列 (可收折) */}
           <div className={`bg-white border-r border-gray-200 flex flex-col shadow-sm transition-all duration-300 ease-in-out z-20 ${
             isSidebarOpen ? 'w-64' : 'w-0 overflow-hidden border-r-0'
           }`}>
@@ -162,13 +158,10 @@
             </div>
           </div>
 
-          {/* 主工作區 */}
           <div className="flex-1 flex flex-col min-w-0 relative">
             
-            {/* 頂部步驟條 */}
             <div className="bg-white border-b border-gray-200 p-4 shadow-sm z-10 flex items-center relative">
               
-              {/* 展開側邊欄按鈕 (只在側邊欄收起時顯示) */}
               {!isSidebarOpen && (
                 <button 
                   onClick={() => setIsSidebarOpen(true)}
@@ -218,13 +211,10 @@
               </div>
             </div>
 
-            {/* 雙欄內容區 (含可拖拉分隔線) */}
             <div ref={containerRef} className="flex-1 flex overflow-hidden relative">
               
-              {/* 拖拉防護層：避免滑鼠拖移到 iframe 上面時失效 */}
               {isDragging && <div className="absolute inset-0 z-50 cursor-col-resize"></div>}
 
-              {/* 左欄：PDF 閱讀區 */}
               <div style={{ width: `${leftWidth}%` }} className="flex flex-col bg-gray-100 shrink-0">
                 <div className="bg-white p-2 border-b flex items-center gap-2">
                   <FileText size={18} className="text-gray-500 ml-2" />
@@ -260,8 +250,6 @@
                     />
                   </div>
                 </div>
-              </div>
-
               {/* 可拖拉分隔線 (Draggable Divider) */}
               <div 
                 className="w-3 bg-gray-200 hover:bg-blue-300 active:bg-blue-400 cursor-col-resize flex items-center justify-center shrink-0 transition-colors z-10"
@@ -274,7 +262,7 @@
               </div>
 
               {/* 右欄：表單區 */}
-              <div style={{ width: `${100 - leftWidth}%` }} className="flex flex-col bg-white shrink-0 border-l border-gray-200">
+              <div className="flex-1 flex flex-col bg-white min-w-0 border-l border-gray-200">
                 <div className="bg-white p-3 border-b flex items-center justify-between px-4 shrink-0">
                   <div className="flex items-center gap-2 text-blue-800 font-bold truncate">
                     {currentStep === 1 ? '填寫：適切性評估表' : '填寫：一致性評估表'}
